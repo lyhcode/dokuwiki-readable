@@ -30,12 +30,14 @@ if (!defined('DOKU_INC'))
 					<a class="brand" href="<?php echo wl() ?>"><?php echo strip_tags($conf['title']) ?></a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li><?php tpl_action('login', 1) ?></li>
+							<li><a class="brand" href="<?php echo wl() ?>"><?php echo tpl_getLang('home') ?></a></li>
 							<li><?php tpl_action('admin', 1) ?></li>
+							<li><?php tpl_action('index', 1) ?></li>
 							<li><?php tpl_action('profile', 1) ?></li>
+							<li><?php tpl_action('login', 1) ?></li>
 						</ul>
+						<?php amdy_tpl_searchform() ?>
 					</div>
-					<?php amdy_tpl_searchform() ?>
 				</div>
 			</div>
 		</div>
@@ -55,15 +57,11 @@ if (!defined('DOKU_INC'))
 				<p><?php echo tpl_getConf('tagline') ?></p>
 				<div class="subnav">
 					<ul class="nav nav-pills">
-						<li><a class="brand" href="<?php echo wl() ?>"><?php echo tpl_getLang('home') ?></a></li>
 						<li><?php tpl_action('backlink', 1) ?></li>
 						<li><?php tpl_action('edit', 1) ?></li>
 						<li><?php tpl_action('recent', 1) ?></li>
 						<li><?php tpl_action('history', 1) ?></li>
 						<li><?php tpl_action('revert', 1) ?></li>
-						<li><?php tpl_action('subscribe', 1) ?></li>
-						<li><?php tpl_action('media', 1) ?></li>
-						<li><?php tpl_action('index', 1) ?></li>
 					</ul>
 				</div>
 			</header>
@@ -90,7 +88,7 @@ if (!defined('DOKU_INC'))
 					</section>
 					
 					<div class="alert alert-info">
-						<a class="close">&times;</a>
+						<button class="close" data-dismiss="alert">×</button>
 						<strong>Page Info</strong>
 						<?php tpl_pageinfo() ?>
 					</div>
@@ -98,26 +96,26 @@ if (!defined('DOKU_INC'))
 			<div class="navbar">
 				<div class="navbar-inner">
 					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
-						<div class="nav-collapse">
 							<ul class="nav">
 								<li><?php tpl_action('edit', 1) ?></li>
 								<li><?php tpl_action('history', 1) ?></li>
 								<li><?php tpl_action('revert', 1) ?></li>
+								<li><?php tpl_action('media', 1) ?></li>
+								<li><?php tpl_action('subscribe', 1) ?></li>
 							</ul>
 							<ul class="nav pull-right">
 								<li><?php tpl_action('top', 1) ?></li>
 							</ul>
-						</div><!-- /.nav-collapse -->
 					</div>
 					<p><?php tpl_license(false); ?></p>
 				</div><!-- /navbar-inner -->
 			</div>
 		</div>
 		<div class="no"><?php /* provide DokuWiki housekeeping, required in all templates */ tpl_indexerWebBug() ?></div>
+		<!--jQuery from Google CDN-->
+		<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+		<!--bootstrap scripts-->
+		<script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

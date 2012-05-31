@@ -18,3 +18,13 @@ a.wikilink2 {
     color: red;
     text-decoration: underline !important;
 }
+textarea#wiki__text {
+	width: 100%;
+	height: 480px;
+}
+.secedit {
+	float: right;
+	text-align: right;
+	position: relative;
+	top: -2em;
+}
