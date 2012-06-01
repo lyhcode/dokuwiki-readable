@@ -28,3 +28,9 @@ textarea#wiki__text {
 	position: relative;
 	top: -2em;
 }
+div.toc {
+	display: none;
+}
+h1.sectionedit1 {
+	display: none;
+}

@@ -2,14 +2,21 @@
 if (!defined('DOKU_INC'))
 	die();
 @require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
+
+$title = tpl_pagetitle(null, true);
+$description = tpl_getConf('tagline');
+if (count($tokens = explode('(', $title)) > 1) {
+	$title = $tokens[0];
+	$description = str_replace(')', '', $tokens[1]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>">
 	<head>
 		<meta charset="utf-8">
-		<title><?php tpl_pagetitle() ?> - <?php echo strip_tags($conf['title']) ?></title>
+		<title><?php echo $title; ?> - <?php echo strip_tags($conf['title']) ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<meta name="description" content="">
+		<meta name="description" content="<?php echo $description ?>">
 		<meta name="author" content="">
 		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 		<!--[if lt IE 9]>
@@ -53,10 +60,11 @@ if (!defined('DOKU_INC'))
 					</div>
 				</div-->
 			<header class="jumbotron subhead" id="overview">
-				<h1><?php tpl_pagetitle() ?></h1>
-				<p><?php echo tpl_getConf('tagline') ?></p>
+				<h1><?php echo $title ?></h1>
+				<p><?php echo $description ?></p>
 				<div class="subnav">
 					<ul class="nav nav-pills">
+						<li><a class="toggle-toc" href="#content"><?php echo tpl_getLang('toc') ?></a></li>
 						<li><?php tpl_action('backlink', 1) ?></li>
 						<li><?php tpl_action('edit', 1) ?></li>
 						<li><?php tpl_action('recent', 1) ?></li>
@@ -86,6 +94,8 @@ if (!defined('DOKU_INC'))
 						<?php tpl_content() ?>
 						<!-- wikipage stop -->
 					</section>
+					
+					<hr class="soften" />
 					
 					<div class="alert alert-info">
 						<button class="close" data-dismiss="alert">×</button>
@@ -117,5 +127,14 @@ if (!defined('DOKU_INC'))
 		<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
 		<!--bootstrap scripts-->
 		<script type="text/javascript" charset="utf-8" src="<?php echo DOKU_TPL?>bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$('a.toggle-toc').toggle(function() {
+					$('div.toc').show();
+				}, function() {
+					$('div.toc').hide();
+				});
+			});
+		</script>
 	</body>
 </html>

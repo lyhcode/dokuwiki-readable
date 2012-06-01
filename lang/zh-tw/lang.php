@@ -5,6 +5,7 @@
  */
 
 $lang['home']				= '首頁';
+$lang['toc']				= '大綱';
 
 $lang['discussion']        = 'Discussion';
 $lang['back_to_article']   = 'Back to article';
