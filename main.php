@@ -130,9 +130,9 @@ if (count($tokens = explode('(', $title)) > 1) {
 		<script type="text/javascript">
 			$(function() {
 				$('a.toggle-toc').toggle(function() {
-					$('div.toc').show();
+					$('div#dw__toc').show();
 				}, function() {
-					$('div.toc').hide();
+					$('div#dw__toc').hide();
 				});
 
 				$('input.button').addClass('btn');

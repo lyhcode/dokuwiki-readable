@@ -30,7 +30,7 @@ textarea#wiki__text {
 	position: relative;
 	top: -2em;
 }
-div.toc {
+div#dw__toc {
 	display: none;
 }
 h1.sectionedit1 {
