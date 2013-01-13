@@ -21,6 +21,8 @@ a.wikilink2 {
 textarea#wiki__text {
 	width: 100%;
 	height: 480px;
+	font-family: monospace;
+	font-size: 11pt;
 }
 .secedit {
 	float: right;
@@ -33,4 +35,7 @@ div.toc {
 }
 h1.sectionedit1 {
 	display: none;
+}
+section#content p, li, pre, blockquote {
+	line-height: 200%;
 }

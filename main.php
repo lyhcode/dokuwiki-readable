@@ -134,6 +134,8 @@ if (count($tokens = explode('(', $title)) > 1) {
 				}, function() {
 					$('div.toc').hide();
 				});
+
+				$('input.button').addClass('btn');
 			});
 		</script>
 	</body>
